@@ -3,24 +3,25 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Macchine nel Parcheggio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-linear-to-br from-violet-800 to-black text-white min-h-screen p-8">
+<body class="bg-linear-to-br from-violet-800 to-black text-white min-h-screen p-4 sm:p-6 lg:p-8">
 
     <div class="max-w-7xl mx-auto flex flex-col justify-center items-center">
 
         <div class="flex flex-col justify-center items-center mb-10">
-            <h1 class="text-4xl font-bold text-center mb-2">🚘 Macchine nel Parcheggio 🚘</h1>
+            <h1 class="text-3xl sm:text-4xl font-bold text-center mb-2">🚘 Macchine nel Parcheggio 🚘</h1>
             <p class="text-center text-white/80 mb-3">Macchine attualmente parcheggiate</p>
             <a class="flex justify-center items-center w-44 h-10 rounded-lg bg-white text-violet-800 hover:bg-white/5 hover:text-white hover:border-2 hover:border-white transition-all duration-300" href="index.html" >Menù Principale</a>
         </div>
 
 
 
-        <div id="griglia" class="grid grid-cols-4 gap-8">
+        <div id="griglia" class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
 
         </div>
 

@@ -6,7 +6,7 @@ fetch('https://prjparcheggio.onrender.com/macchine')
         if (!griglia) return;
         data.forEach(m => {
             griglia.innerHTML += `
-                <div class="flex flex-col justify-evenly gap-y-2 bg-white/15 rounded-2xl p-7 shadow-lg hover:bg-white/25 transition">
+                <div class="flex flex-col justify-evenly gap-y-2 bg-white/15 rounded-2xl p-5 sm:p-6 lg:p-7 shadow-lg hover:bg-white/25 transition">
                     <div class="text-xs text-white/80 ">ID AUTO: <strong>${m.id}</strong></div>
                     <div class="text-lg font-bold">${m.targa}</div>
                     <div class="flex items-center gap-x-5 w-full">
@@ -41,13 +41,13 @@ function cercaPer(colonna, valore) {
             const tbody = document.getElementById('tbody');
             tbody.innerHTML = `
                 <tr class="hover:bg-white/5 transition">
-                    <td class="px-6 py-4 text-white/50">${m.id}</td>
-                    <td class="px-6 py-4 font-semibold">${m.targa}</td>
-                    <td class="px-6 py-4 text-violet-400">${m.marca}</td>
-                    <td class="px-6 py-4">
+                    <td class="px-4 sm:px-6 py-3 sm:py-4 text-white/50">${m.id}</td>
+                    <td class="px-4 sm:px-6 py-3 sm:py-4 font-semibold">${m.targa}</td>
+                    <td class="px-4 sm:px-6 py-3 sm:py-4 text-violet-400">${m.marca}</td>
+                    <td class="px-4 sm:px-6 py-3 sm:py-4">
                         <span class="bg-violet-600 text-white text-xs px-2 py-1 rounded-full">📍 ${m.idStallo}</span>
                     </td>
-                    <td class="px-6 py-4 text-white/50">${m.oraEntrata.replace('T', ' ')}</td>
+                    <td class="px-4 sm:px-6 py-3 sm:py-4 text-white/50">${m.oraEntrata.replace('T', ' ')}</td>
                 </tr>
             `;
             document.getElementById('risultato').classList.remove('hidden');

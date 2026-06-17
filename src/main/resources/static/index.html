@@ -11,15 +11,15 @@
 </head>
 
 <body
-    class="bg-linear-to-br from-violet-800 to-black text-white h-screen  p-10 flex flex-col justify-center items-center">
+    class="bg-linear-to-br from-violet-800 to-black text-white min-h-screen p-4 sm:p-6 lg:p-10 flex flex-col justify-center items-center">
 
-    <div class="flex flex-col justify-center items-center w-full h-screen m-5">
+    <div class="flex flex-col justify-center items-center w-full m-5">
         <div id="titolo" class="text-center">
-            <h1 class="text-4xl font-bold mb-2">🅿️ Gestione Parcheggio 🅿️</h1>
+            <h1 class="text-3xl sm:text-4xl font-bold mb-2">🅿️ Gestione Parcheggio 🅿️</h1>
             <p class="text-white/80 mb-4">Parcheggio aggiornato in tempo reale</p>
         </div>
 
-        <div class="w-[75%] grid grid-cols-3 gap-10 my-10">
+        <div class="w-[90%] sm:w-[85%] lg:w-[75%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 my-8 lg:my-10">
 
             <!-- SCELTA 1 -->
             <div
@@ -58,7 +58,7 @@
 
         <!-- SCELTA 4 -->
         <div
-            class="w-[50%] flex flex-col justify-center items-center gap-y-3 p-5 bg-white/5 rounded-2xl border border-white">
+            class="w-[90%] sm:w-[70%] lg:w-[50%] flex flex-col justify-center items-center gap-y-3 p-5 bg-white/5 rounded-2xl border border-white">
             <h2 class="text-xl font-semibold mb-2">Uscita dal parcheggio</h2>
             <p class="text-lg text-center">Specificare la targa <br>della macchina che vuole uscire</p>
             <input id="inputUscita" type="text" placeholder="Es. AB123CD" maxlength="7"
@@ -70,6 +70,12 @@
             </button>
             <p id="successoUscita" class="text-green-400 text-sm hidden">✅ Macchina uscita con successo!</p>
         </div>
+
+        <!-- FOOTER / LINK CREDITS -->
+        <div class="w-full text-center mt-10 text-white/60 text-sm">
+            <p>Hai domande? <a href="crediti.html" class="text-violet-400 hover:text-white underline transition duration-300">Visualizza i Credits e Contatti</a></p>
+        </div>
+
     </div>
 
     <script src="script.js"></script>
