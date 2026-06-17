@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://img.icons8.com/ios-filled/50/parking.png" type="image/x-icon">   
+    <title>Interfaccia Parcheggio</title>
+</head>
+
+<body
+    class="bg-linear-to-br from-violet-800 to-black text-white h-screen  p-10 flex flex-col justify-center items-center">
+
+    <div class="flex flex-col justify-center items-center w-full h-screen m-5">
+        <div id="titolo" class="text-center">
+            <h1 class="text-4xl font-bold mb-2">🅿️ Gestione Parcheggio 🅿️</h1>
+            <p class="text-white/80 mb-4">Parcheggio aggiornato in tempo reale</p>
+        </div>
+
+        <div class="w-[75%] grid grid-cols-3 gap-10 my-10">
+
+            <!-- SCELTA 1 -->
+            <div
+                class="flex flex-col justify-center items-center gap-y-2 p-5 bg-white/5 rounded-2xl border border-white">
+                <h2 class="text-xl font-semibold mb-2">Stato Parcheggio</h2>
+                <p class="text-lg text-center">Visualizzare le macchine <br>attualemente presenti nel parcheggio</p>
+                <a href="menu-1.html"
+                    class=" w-[80%] mt-4 px-4 py-2 bg-violet-600 hover:bg-white/5 hover:text-white border border-transparent hover:border hover:border-white transition-all duration-300 rounded-lg text-white text-center">
+                    Vai al parcheggio
+                </a>
+            </div>
+
+            <!-- SCELTA 2 -->
+            <div
+                class=" flex flex-col justify-center items-center gap-y-2 p-5 bg-white/5 rounded-2xl border border-white">
+                <h2 class="text-xl font-semibold mb-2">Singola Macchina</h2>
+                <p class="text-lg text-center">Visualizzare le informazioni <br>di una singola macchina</p>
+                <a href="menu-2.html"
+                    class=" w-[80%] mt-4 px-4 py-2 bg-violet-600 hover:bg-white/5 hover:text-white border border-transparent hover:border hover:border-white transition-all duration-300 rounded-lg text-white text-center">
+                    Seleziona la macchina
+                </a>
+            </div>
+
+            <!-- SCELTA 3 -->
+            <div
+                class=" flex flex-col justify-center items-center gap-y-2 p-5 bg-white/5 rounded-2xl border border-white">
+                <h2 class="text-xl font-semibold mb-2">Entrata nel parcheggio</h2>
+                <p class="text-lg text-center">Entrata nel parcheggio <br>specificando le determinate informazioni</p>
+                <a href="menu-3.html"
+                    class=" w-[80%] mt-4 px-4 py-2 bg-violet-600 hover:bg-white/5 hover:text-white border border-transparent hover:border hover:border-white transition-all duration-300 rounded-lg text-white text-center">
+                    Entra nel parcheggio
+                </a>
+            </div>
+
+        </div>
+
+        <!-- SCELTA 4 -->
+        <div
+            class="w-[50%] flex flex-col justify-center items-center gap-y-3 p-5 bg-white/5 rounded-2xl border border-white">
+            <h2 class="text-xl font-semibold mb-2">Uscita dal parcheggio</h2>
+            <p class="text-lg text-center">Specificare la targa <br>della macchina che vuole uscire</p>
+            <input id="inputUscita" type="text" placeholder="Es. AB123CD" maxlength="7"
+                class="w-[80%] px-4 py-2 rounded-lg bg-white/10 border border-white/30 text-white placeholder-white/40 focus:outline-none focus:border-violet-400" />
+            <p id="errUscita" class="text-red-400 text-sm hidden"></p>
+            <button onclick="esci()"
+                class="w-[80%] px-4 py-2 bg-violet-600 hover:bg-white/5 border border-transparent hover:border-white transition-all duration-300 rounded-lg text-white text-center">
+                Esci dal Parcheggio
+            </button>
+            <p id="successoUscita" class="text-green-400 text-sm hidden">✅ Macchina uscita con successo!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
