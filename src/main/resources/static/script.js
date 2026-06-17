@@ -1,5 +1,5 @@
 //  MENU 1
-fetch('http://localhost:7070/macchine')
+fetch('https://prjparcheggio.onrender.com/macchine')
     .then(res => res.json())
     .then(data => {
         const griglia = document.getElementById('griglia');
@@ -32,7 +32,7 @@ function cercaPer(colonna, valore) {
     document.getElementById('inputTarga').value = '';
     document.getElementById('inputPos').value = '';
 
-    fetch(`http://localhost:7070/macchine/${colonna}/${valore}`)
+    fetch(`https://prjparcheggio.onrender.com/macchine/${colonna}/${valore}`)
         .then(res => {
             if (!res.ok) throw new Error('Macchina non trovata');
             return res.json();
@@ -66,7 +66,7 @@ window.addEventListener('load', () => {
     const select = document.getElementById('selectMarca');
     if (!select) return; // se non esiste il select, esci subito
 
-    fetch('http://localhost:7070/marche')
+    fetch('https://prjparcheggio.onrender.com/marche')
         .then(res => res.json())
         .then(data => {
             data.forEach(m => {
@@ -128,7 +128,7 @@ function entra() {
         return;
     }
 
-    fetch('http://localhost:7070/macchine', {
+    fetch('https://prjparcheggio.onrender.com/macchine', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -180,7 +180,7 @@ function esci() {
         return;
     }
 
-    fetch(`http://localhost:7070/macchine/${targa}`, { method: 'DELETE' })
+    fetch(`https://prjparcheggio.onrender.com/macchine/${targa}`, { method: 'DELETE' })
         .then(res => {
             if (!res.ok) throw new Error('non trovata');
             return res.text();
