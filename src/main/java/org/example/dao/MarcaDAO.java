@@ -11,7 +11,7 @@ public class MarcaDAO {
 
     // 🔹 INSERT
     public void insert(Marca m) {
-        String sql = "INSERT INTO marca (nomemarca) VALUES (?)";
+        String sql = "INSERT INTO MARCA (Marca) VALUES (?)";
 
         try (Connection conn = DataBaseManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -29,7 +29,7 @@ public class MarcaDAO {
     public List<Marca> getAll() {
         List<Marca> lista = new ArrayList<>();
 
-        String sql = "SELECT * FROM marca";
+        String sql = "SELECT * FROM MARCA";
 
         try (Connection conn = DataBaseManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
@@ -38,7 +38,7 @@ public class MarcaDAO {
             while (rs.next()) {
                 Marca m = new Marca();
 
-                m.setNomeMarca(rs.getString("marca"));
+                m.setNomeMarca(rs.getString("Marca"));
 
                 lista.add(m);
             }
@@ -52,7 +52,7 @@ public class MarcaDAO {
 
     // 🔹 DELETE
     public void delete(String nomeMarca) {
-        String sql = "DELETE FROM marca WHERE nomemarca = ?";
+        String sql = "DELETE FROM MARCA WHERE Marca = ?";
 
         try (Connection conn = DataBaseManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
