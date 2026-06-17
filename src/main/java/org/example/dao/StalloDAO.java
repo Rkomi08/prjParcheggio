@@ -11,12 +11,12 @@ public class StalloDAO {
 
     // 🔹 INSERT
     public void insert(Stallo s) {
-        String sql = "INSERT INTO stallo (posizione) VALUES (?)";
+        String sql = "INSERT INTO STALLO (Posizione) VALUES (?)";
 
         try (Connection conn = DataBaseManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setString(1,s.getPosizione());
+            ps.setString(1, s.getPosizione());
 
             ps.executeUpdate();
 
@@ -29,7 +29,7 @@ public class StalloDAO {
     public List<Stallo> getAll() {
         List<Stallo> lista = new ArrayList<>();
 
-        String sql = "SELECT * FROM stallo";
+        String sql = "SELECT * FROM STALLO";
 
         try (Connection conn = DataBaseManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
@@ -38,8 +38,8 @@ public class StalloDAO {
             while (rs.next()) {
                 Stallo s = new Stallo();
 
-                s.setId(rs.getInt("id_stallo"));
-                s.setPosizione(Integer.toString(rs.getInt("posizione")));
+                s.setId(rs.getInt("Id_Stallo"));
+                s.setPosizione(Integer.toString(rs.getInt("Posizione")));
 
                 lista.add(s);
             }
@@ -54,14 +54,14 @@ public class StalloDAO {
     public List<Integer> ottieniStalli() {
         List<Integer> stalli = new ArrayList<>();
 
-        String sql = "SELECT posizione FROM stallo";
+        String sql = "SELECT Posizione FROM STALLO";
 
         try (Connection conn = DataBaseManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
-                int posizione = rs.getInt("posizione");
+                int posizione = rs.getInt("Posizione");
                 stalli.add(posizione);
             }
 
@@ -75,15 +75,15 @@ public class StalloDAO {
     public int ottieniID(int posizione) {
         int id = 0;
         boolean tf = false;
-        String sql = "SELECT id_stallo, posizione FROM stallo";
+        String sql = "SELECT Id_Stallo, Posizione FROM STALLO";
 
         try (Connection conn = DataBaseManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next() && !tf) {
-                if (rs.getInt("posizione") == posizione){
-                    id = rs.getInt("id_stallo");
+                if (rs.getInt("Posizione") == posizione) {
+                    id = rs.getInt("Id_Stallo");
                     tf = true;
                 }
             }
@@ -93,12 +93,11 @@ public class StalloDAO {
         }
 
         return id;
-
     }
 
     // 🔹 DELETE
     public void delete(String colonna, String valore) {
-        String sql = "DELETE FROM stallo WHERE " + colonna + " = ?";
+        String sql = "DELETE FROM STALLO WHERE " + colonna + " = ?";
 
         try (Connection conn = DataBaseManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {

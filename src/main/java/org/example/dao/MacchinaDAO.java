@@ -12,7 +12,7 @@ public class MacchinaDAO {
 
     // 🔹 INSERT
     public void insert(Macchina m) {
-        String sql = "INSERT INTO macchina (targa, marca, id_stallo, ora_entrata) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO MACCHINA (Targa, Marca, Id_Stallo, Ora_Entrata) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = DataBaseManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -33,10 +33,10 @@ public class MacchinaDAO {
     public List<Macchina> getAll() {
         List<Macchina> lista = new ArrayList<>();
 
-        String sql = "SELECT M.Id_Auto, M.Targa, M.Marca, S.Posizione, M.Ora_Entrata\n" +
-                "FROM MACCHINA M \n" +
-                "INNER JOIN STALLO S\n" +
-                "ON M.Id_Stallo = S.Id_Stallo;";
+        String sql = "SELECT M.Id_Auto, M.Targa, M.Marca, S.Posizione, M.Ora_Entrata " +
+                "FROM MACCHINA M " +
+                "INNER JOIN STALLO S " +
+                "ON M.Id_Stallo = S.Id_Stallo";
 
         try (Connection conn = DataBaseManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
@@ -45,11 +45,11 @@ public class MacchinaDAO {
             while (rs.next()) {
                 Macchina m = new Macchina();
 
-                m.setId(rs.getInt("id_auto"));
-                m.setTarga(rs.getString("targa"));
-                m.setMarca(rs.getString("marca"));
-                m.setIdStallo(rs.getInt("posizione"));
-                m.setOraEntrata(rs.getTimestamp("ora_entrata").toLocalDateTime());
+                m.setId(rs.getInt("Id_Auto"));
+                m.setTarga(rs.getString("Targa"));
+                m.setMarca(rs.getString("Marca"));
+                m.setIdStallo(rs.getInt("Posizione"));
+                m.setOraEntrata(rs.getTimestamp("Ora_Entrata").toLocalDateTime());
 
                 lista.add(m);
             }
@@ -63,24 +63,24 @@ public class MacchinaDAO {
 
     // 🔹 SELECT PER COLONNA
     public Macchina getByColonna(String colonna, String valore) {
-        String sql = "SELECT M.Id_Auto, M.Targa, M.Marca, S.Posizione, M.Ora_Entrata FROM MACCHINA M INNER JOIN STALLO S ON M.Id_Stallo = S.Id_Stallo WHERE " + colonna + " = ?";
+        String sql = "SELECT M.Id_Auto, M.Targa, M.Marca, S.Posizione, M.Ora_Entrata " +
+                "FROM MACCHINA M INNER JOIN STALLO S ON M.Id_Stallo = S.Id_Stallo WHERE " + colonna + " = ?";
 
         try (Connection conn = DataBaseManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, valore);
 
-
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
                 Macchina m = new Macchina();
 
-                m.setId(rs.getInt("id_auto"));
-                m.setTarga(rs.getString("targa"));
-                m.setMarca(rs.getString("marca"));
-                m.setIdStallo(rs.getInt("posizione"));
-                m.setOraEntrata(rs.getTimestamp("ora_entrata").toLocalDateTime());
+                m.setId(rs.getInt("Id_Auto"));
+                m.setTarga(rs.getString("Targa"));
+                m.setMarca(rs.getString("Marca"));
+                m.setIdStallo(rs.getInt("Posizione"));
+                m.setOraEntrata(rs.getTimestamp("Ora_Entrata").toLocalDateTime());
 
                 return m;
             }
@@ -95,14 +95,14 @@ public class MacchinaDAO {
     public List<String> ottieniTarghe() {
         List<String> targhe = new ArrayList<>();
 
-        String sql = "SELECT targa FROM macchina";
+        String sql = "SELECT Targa FROM MACCHINA";
 
         try (Connection conn = DataBaseManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
-                String targa = rs.getString("targa");
+                String targa = rs.getString("Targa");
                 targhe.add(targa);
             }
 
@@ -113,10 +113,9 @@ public class MacchinaDAO {
         return targhe;
     }
 
-
     // 🔹 DELETE
     public void delete(String colonna, String valore) {
-        String sql = "DELETE FROM macchina WHERE " + colonna + " = ?";
+        String sql = "DELETE FROM MACCHINA WHERE " + colonna + " = ?";
 
         try (Connection conn = DataBaseManager.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
