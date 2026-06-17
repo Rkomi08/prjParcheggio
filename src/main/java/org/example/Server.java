@@ -20,7 +20,7 @@ public class Server {
     public static void main(String[] args) {
 
         Javalin app = Javalin.create(config -> {
-            config.staticFiles.add("src/main/resources/static", Location.EXTERNAL);
+            config.staticFiles.add("/static", Location.CLASSPATH);
             config.bundledPlugins.enableCors(cors -> {
                 cors.addRule(it -> {
                     it.anyHost();
